@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\StockController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/stock', function () {
-    return view('stock');
-});
+Route::get('/stock', [StockController::class, 'stock']); 
