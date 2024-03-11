@@ -18,7 +18,7 @@ class ItemFactory extends Factory
             'name' => fake()->name(),
             'expiry_date' => fake()->date(),
             'icon_color' => fake()->hexColor(),
-            'user_id' => fake()->numberBetween(1,3),
+            'user_id' => fake()->numberBetween(1,2),
         ];
     }
 }

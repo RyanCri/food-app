@@ -7,6 +7,8 @@ use App\Http\Controllers\StockController;
 
 use App\Http\Controllers\User\ItemController as UserItemController;
 
+use App\Http\Controllers\Admin\TypeController as AdminTypeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,5 +38,6 @@ Route::get('/stock', [StockController::class, 'stock']);
 
 Route::resource('/item', UserItemController::class)->middleware(['auth', 'role:user,admin'])->names('user.item');
 
+Route::resource('/admin/type', AdminTypeController::class)->middleware(['auth', 'role:admin'])->names('admin.type');
 
 require __DIR__.'/auth.php';
