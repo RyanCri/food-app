@@ -47,8 +47,8 @@
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $item->icon_color }}
-                        <svg width="70" height="10" class="whitespace-nowrap dark:text-white" style="display:block; margin:auto">
-                            <rect width="70" height="10" x="0" y="0" fill="{{ $item->icon_color }}" />
+                        <svg width="60" height="10" class="whitespace-nowrap dark:text-white">
+                            <rect width="60" height="10" x="0" y="0" fill="{{ $item->icon_color }}" />
                         </svg>
                     </th>
                     <td class="px-6 py-4 text-right">

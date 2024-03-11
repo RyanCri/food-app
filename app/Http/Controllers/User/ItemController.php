@@ -87,4 +87,11 @@ class ItemController extends Controller
 
         return redirect() ->route('user.item.index')->with('status', "Edited {$item->name}!");
     }
+
+    public function destroy(string $id) {
+        $item = Item::findOrFail($id);
+        $item->delete();
+
+        return redirect() ->route('user.item.index')->with('status', "{$item->name} deleted successfully!");
+    }
 }
