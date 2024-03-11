@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StockController;
 
+use App\Http\Controllers\User\ItemController as UserItemController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +33,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/stock', [StockController::class, 'stock']);
+
+Route::resource('/item', UserItemController::class)->middleware(['auth', 'role:user,admin'])->names('user.item');
+
 
 require __DIR__.'/auth.php';
