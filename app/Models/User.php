@@ -15,7 +15,7 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'user_role');
+        return $this->belongsToMany(Role::class, 'user_roles');
     }
 
     public function hasRole($role)
@@ -35,7 +35,7 @@ class User extends Authenticatable
         }
         return $this->hasRole($roles) || abort(403, "You are not authorized!");
     }
-    
+
     /**
      * The attributes that are mass assignable.
      *
