@@ -7,7 +7,6 @@
 @endsection
 
 @section('content')
-
 <h2 class="text-4xl font-extrabold dark:text-white">{{ $item->name }}</h2>
 
 <svg width="100" height="100">
@@ -15,4 +14,10 @@
 </svg>
 
 <h3 class="text-4xl font-extrabold dark:text-white">{{ $item->expiry_date }}</h3>
+
+<div>
+    <a href="{{ route('user.item.edit', $item->id)}}">Edit</a>
+
+</div>
+
 @endsection
