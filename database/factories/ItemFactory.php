@@ -15,8 +15,8 @@ class ItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'expiry_date' => fake()->date(),
+            'name' => fake()->randomElement(['Milk', 'Bread', 'Cake', 'Ham', 'Waffle']),
+            'expiry_date' => fake()->dateTimeBetween('now', '+2 weeks'),
             'icon_color' => fake()->hexColor(),
             'user_id' => fake()->numberBetween(1,2),
         ];

@@ -13,16 +13,29 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
-        $liquid = new Type;
-        $liquid->type = "Liquid";
-        $liquid->save();
+        // $liquid = new Type;
+        // $liquid->type = "Liquid";
+        // $liquid->save();
 
-        $fruit = new Type;
-        $fruit->type = "Fruit";
-        $fruit->save();
+        // $fruit = new Type;
+        // $fruit->type = "Fruit";
+        // $fruit->save();
 
-        $vegetable = new Type;
-        $vegetable->type = "Vegetable";
-        $vegetable->save();
+        // $vegetable = new Type;
+        // $vegetable->type = "Vegetable";
+        // $vegetable->save();
+
+        $types = [
+            ['type' => 'Liquid'],
+            ['type' => 'Baked Goods'],
+            ['type' => 'Vegetable'],
+            ['type' => 'Fruit'],
+            ['type' => 'Meat'],
+            ['type' => 'Sauce'],
+        ];
+
+        foreach($types as $type) {
+            Type::create($type);
+        }
     }
 }

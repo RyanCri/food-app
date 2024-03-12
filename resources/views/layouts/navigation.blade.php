@@ -21,6 +21,10 @@
                     <x-nav-link :href="route('admin.type.index')" :active="request()->routeIs('type')">
                         {{ __('Types') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('admin.icon.index')" :active="request()->routeIs('icon')">
+                        {{ __('Icons') }}
+                    </x-nav-link>
                     {{-- @endif --}}
                 </div>
             </div>
