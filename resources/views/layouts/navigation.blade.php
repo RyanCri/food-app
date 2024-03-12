@@ -15,6 +15,13 @@
                     <x-nav-link :href="route('user.item.index')" :active="request()->routeIs('item')">
                         {{ __('Items') }}
                     </x-nav-link>
+
+                    {{-- {{dd( auth()->user()->roles[0]->name == 'admin')}} --}}
+                    {{-- @if({{ auth()->user()->roles[0]->name == 'admin'}}) --}}
+                    <x-nav-link :href="route('admin.type.index')" :active="request()->routeIs('type')">
+                        {{ __('Types') }}
+                    </x-nav-link>
+                    {{-- @endif --}}
                 </div>
             </div>
 

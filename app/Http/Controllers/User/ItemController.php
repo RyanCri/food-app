@@ -45,7 +45,7 @@ class ItemController extends Controller
         $item->user_id = $request->user_id;
         $item->save();
 
-        return redirect() ->route('user.item.index')->with('status', $request->item, ' added!');
+        return redirect() ->route('user.item.index')->with('status', "{$item->name} added!");
     }
 
     public function show(string $id) {
