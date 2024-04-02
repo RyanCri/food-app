@@ -11,9 +11,9 @@
         @csrf
         <div>
             <label>
-                Type Name
+                Type
             </label>
-            <input type="text" name="type" id="type" value="{{old('type') ? : {$type->type}}}"/>
+            <input type="text" name="type" id="type" value="{{old('type') ? : $type->type}}"/>
             @if($errors->has('type'))
             <span>{{ $errors->first('type') }}</span>
             @endif

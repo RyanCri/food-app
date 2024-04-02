@@ -67,4 +67,26 @@ class IconController extends Controller
             'icon' => $icon
         ]);
     }
+
+    public function update(Request $request, string $id) {
+        $rules = [
+            'name' => 'required|string|min:2|max:64',
+            'svg' => 'image|mimes:svg',
+            'default_color' => 'required|hex_color',        ];
+
+        $request->validate($rules);
+
+        $icon = new Icon;
+        $icon->icon = $request->icon;
+        $icon->save();
+
+        return redirect() ->route('admin.icon.index')->with('status', "Edited {$icon->name}!");
+    }
+
+    public function destroy(string $id) {
+        $icon = Icon::findOrFail($id);
+        $icon->delete();
+
+        return redirect() ->route('admin.icon.index')->with('status', "{$icon->name} deleted successfully!");
+    }
 }

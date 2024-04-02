@@ -13,18 +13,27 @@
             <label>
                 Icon Name
             </label>
-            <input type="text" name="name" id="name" value="{{old('icon') ? : {$icon->name}}}"/>
+            <input type="text" name="name" id="name" value="{{old('icon') ? : $icon->name}}"/>
             @if($errors->has('name'))
             <span>{{ $errors->first('name') }}</span>
             @endif
         </div>
         <div>
             <label>
-                Icon Name
+                SVG
             </label>
-            <input type="text" name="svg" id="svg" value="{{old('icon') ? : {$icon->svg}}}"/>
+            <input type="file" name="svg" id="svg" value="{{old('svg')}}"/>
             @if($errors->has('svg'))
             <span>{{ $errors->first('svg') }}</span>
+            @endif
+        </div>
+        <div>
+            <label>
+                Default Colour
+            </label>
+            <input type="color" name="default_color" id="default_color" value="{{old('default_color')}}"/>
+            @if($errors->has('default_color'))
+            <span>{{ $errors->first('default_color') }}</span>
             @endif
         </div>
         
