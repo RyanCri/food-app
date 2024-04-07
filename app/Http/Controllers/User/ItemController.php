@@ -16,6 +16,15 @@ class ItemController extends Controller
             'items' => $items,
         ]);
     }
+
+    public function list(string $user_id) {
+        $items = Item::where('user_id', $user_id)->get(); //gets all items where user_id is current user
+        // dd();
+
+        return view ('user.item.list', [
+            'items' => $items,
+        ]);
+    }
     
     public function create() {
         return view ('user.item.itemCreate');

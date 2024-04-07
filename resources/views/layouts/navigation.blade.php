@@ -16,6 +16,10 @@
                         {{ __('Items') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('user.item.list', auth()->user()->id)" :active="request()->routeIs('item')">
+                        {{ __('My List') }}
+                    </x-nav-link>
+
                     {{-- {{dd( auth()->user()->roles[0]->name == 'admin')}} --}}
                     {{-- @if({{ auth()->user()->roles[0]->name == 'admin'}}) --}}
                     <x-nav-link :href="route('admin.type.index')" :active="request()->routeIs('type')">

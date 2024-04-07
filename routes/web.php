@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/stock', [StockController::class, 'stock']);
 
 Route::resource('/item', UserItemController::class)->middleware(['auth', 'role:user,admin'])->names('user.item');
+Route::get('item/list/{user_id}', [UserItemController::class, 'list'])->name('user.item.list');
 
 Route::resource('/admin/type', AdminTypeController::class)->middleware(['auth', 'role:admin'])->names('admin.type');
 Route::resource('/admin/icon', AdminIconController::class)->middleware(['auth', 'role:admin'])->names('admin.icon');
