@@ -37,6 +37,19 @@
             <span>{{ $errors->first('icon_color') }}</span>
             @endif
         </div>
+        <<div>
+            <label>
+                Type
+            </label>
+            <select name="type_id" id="type_id">
+                @foreach ($types as $type)
+                    <option value="{{$type->id}}">{{$type->type}}</option>
+                @endforeach
+            </select>
+            @if($errors->has('type'))
+            <span>{{ $errors->first('type') }}</span>
+            @endif
+        </div>
         <div>
             <input type="hidden" name="user_id" id="user_id" value="{{ $item->user_id}}"/>
         </div>

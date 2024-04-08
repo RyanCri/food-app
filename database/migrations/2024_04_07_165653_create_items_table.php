@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->date('expiry_date');
             $table->string('icon_color');
+            $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('user_id');
 
+            $table->foreign('type_id')->references('id')->on('types');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
