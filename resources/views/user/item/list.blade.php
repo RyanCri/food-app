@@ -27,6 +27,9 @@
                         Icon Colour
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Type
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Edit</span>
                     </th>
                 </tr>
@@ -50,6 +53,14 @@
                         <svg width="60" height="10" class="whitespace-nowrap dark:text-white">
                             <rect width="60" height="10" x="0" y="0" fill="{{ $item->icon_color }}" />
                         </svg>
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @foreach($types as $type)
+                                @if($type->id == $item->type_id)
+                                    {{$type->type}}
+                                    @continue
+                                @endif
+                            @endforeach
                     </th>
                     <td class="px-6 py-4 text-right">
                         <a href="{{ route('user.item.show', $item->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>

@@ -16,8 +16,9 @@ class ItemFactory extends Factory
     {
         return [
             'name' => fake()->randomElement(['Milk', 'Bread', 'Cake', 'Ham', 'Waffle']),
-            'expiry_date' => fake()->dateTimeBetween('now', '+2 weeks'),
+            'expiry_date' => fake()->dateTimeBetween('-1 weeks', '+2 weeks'),
             'icon_color' => fake()->hexColor(),
+            'type_id' => fake()->numberBetween(1,6),
             'user_id' => fake()->numberBetween(1,2),
         ];
     }

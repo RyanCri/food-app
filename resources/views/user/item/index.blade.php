@@ -4,6 +4,9 @@
     <h2>items</h2>
 @endsection
 
+{{-- current date variable --}}
+{{ $ldate = date('Y-m-d') }} 
+
 @section('content')
     <a href="{{ route('user.item.create')}}">create</a>
 
@@ -45,18 +48,48 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $item->name }}
                     </th>
+                    @if($item->expiry_date > $ldate)
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $item->expiry_date }}
                     </th>
+                    @else
+                    <th scope="row" class="px-6 py-4 bg-[ff0000] font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $item->expiry_date }}
+                    </th>
+                    @endif
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $item->icon_color }}
                         <svg width="60" height="10" class="whitespace-nowrap dark:text-white">
                             <rect width="60" height="10" x="0" y="0" fill="{{ $item->icon_color }}" />
                         </svg>
                     </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @foreach($types as $type)
+                                @if($type->id == $item->type_id)
+                                    {{$type->type}}
+                                    @continue
+                                @endif
+                            @endforeach
+                    </th>
+                    {{-- <td class="px-6 py-4 text-right">
+                        <a href="{{ route('user.item.show', $item->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                    </td> --}}
+                    @if($item->expiry_date > $ldate)
                     <td class="px-6 py-4 text-right">
                         <a href="{{ route('user.item.show', $item->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
                     </td>
+                    @else
+                    {{-- <td class="px-6 py-4 text-right">
+                        <a href="{{ route('user.item.show', $item->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                    </td> --}}
+                    <td class="px-6 py-4 text-right">
+                        <form method="POST" action="{{ route('user.item.destroy', $item->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Delete</button>
+                        </form>                    
+                    </td>
+                    @endif
                 </tr>
 
                 @empty

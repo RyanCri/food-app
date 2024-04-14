@@ -13,18 +13,23 @@ class ItemController extends Controller
 {
     public function index() {
         $items = Item::orderBy('name', 'asc')->paginate(8);
+        $types = Type::all();
+        $ldate = date('Y-m-d H:i:s');
         
         return view('user.item.index', [
             'items' => $items,
+            'types' => $types,
+            'date' => $ldate,
         ]);
     }
 
     public function list(string $user_id) {
         $items = Item::where('user_id', $user_id)->get(); //gets all items where user_id is current user
-        // dd();
+        $types = Type::all();
 
         return view ('user.item.list', [
             'items' => $items,
+            'types' => $types,
         ]);
     }
     
