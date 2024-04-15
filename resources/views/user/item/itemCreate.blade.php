@@ -50,6 +50,19 @@
             @endif
         </div>
         <div>
+            <label>
+                Icon
+            </label>
+            <select name="icon_id" id="icon_id">
+                @foreach ($icons as $icon)
+                    <option value="{{$icon->id}}">{{$icon->name}}</option>
+                @endforeach
+            </select>
+            @if($errors->has('type'))
+            <span>{{ $errors->first('type') }}</span>
+            @endif
+        </div>
+        <div>
             <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id}}"/>
         </div>
         

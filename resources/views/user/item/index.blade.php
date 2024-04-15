@@ -4,14 +4,20 @@
     <h2>items</h2>
 @endsection
 
+{{-- {{dd()}} --}}
+
+
 {{-- current date variable --}}
-{{ $ldate = date('Y-m-d') }} 
+<p class="invisible">{{ $ldate = date('Y-m-d') }} </p>
 
 @section('content')
     <a href="{{ route('user.item.create')}}">create</a>
 
     <br>
     <br>
+
+
+    {{-- <p class="invisible">{{ $ldate = date('Y-m-d') }} </p> --}}
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

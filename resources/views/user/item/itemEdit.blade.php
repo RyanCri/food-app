@@ -37,13 +37,26 @@
             <span>{{ $errors->first('icon_color') }}</span>
             @endif
         </div>
-        <<div>
+        <div>
             <label>
                 Type
             </label>
             <select name="type_id" id="type_id">
                 @foreach ($types as $type)
                     <option value="{{$type->id}}">{{$type->type}}</option>
+                @endforeach
+            </select>
+            @if($errors->has('type'))
+            <span>{{ $errors->first('type') }}</span>
+            @endif
+        </div>
+        <div>
+            <label>
+                Icon
+            </label>
+            <select name="icon_id" id="icon_id">
+                @foreach ($icons as $icon)
+                    <option value="{{$icon->id}}">{{$icon->name}}</option>
                 @endforeach
             </select>
             @if($errors->has('type'))
