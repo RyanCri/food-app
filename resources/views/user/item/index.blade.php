@@ -30,6 +30,9 @@
                         Icon Colour
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Icon
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Type
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -62,6 +65,17 @@
                         <svg width="60" height="10" class="whitespace-nowrap dark:text-white">
                             <rect width="60" height="10" x="0" y="0" fill="{{ $item->icon_color }}" />
                         </svg>
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @foreach($icons as $icon)
+                                @if($icon->id == $item->icon_id)
+                                    <svg width="30" height="30" fill="{{ $icon->default_color}}" class="text-red-400">
+                                        <image width="30" height="30"  href="{{asset('storage/images/' . $icon->svg)}}" alt="{{ $icon->svg }}" fill="#00ff00">
+                                        {{-- <circle cx="15" cy="15" r="15" /> --}}
+                                    </svg>
+                                    @continue
+                                @endif
+                            @endforeach
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         @foreach($types as $type)

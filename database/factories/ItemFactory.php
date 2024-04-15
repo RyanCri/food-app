@@ -19,6 +19,7 @@ class ItemFactory extends Factory
             'expiry_date' => fake()->dateTimeBetween('-1 weeks', '+2 weeks'),
             'icon_color' => fake()->hexColor(),
             'type_id' => fake()->numberBetween(1,6),
+            'icon_id' => fake()->numberBetween(1,2),
             'user_id' => fake()->numberBetween(1,2),
         ];
     }
