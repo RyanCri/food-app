@@ -8,7 +8,7 @@
 
 
 {{-- current date variable --}}
-<p class="invisible">{{ $ldate = date('Y-m-d') }} </p>
+<p class="hidden">{{ $ldate = date('Y-m-d') }} </p>
 
 @section('content')
     <a href="{{ route('user.item.create')}}">create</a>

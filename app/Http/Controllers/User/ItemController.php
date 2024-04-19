@@ -74,7 +74,7 @@ class ItemController extends Controller
         $item->user_id = $request->user_id;
         $item->save();
 
-        return redirect() ->route('user.item.index')->with('status', "{$item->name} added!");
+        return redirect() ->route('user.item.list', $item->user_id)->with('status', "{$item->name} added!");
     }
 
     public function show(string $id) {
@@ -128,13 +128,13 @@ class ItemController extends Controller
         $item->user_id = $request->user_id;
         $item->save();
 
-        return redirect() ->route('user.item.index')->with('status', "Edited {$item->name}!");
+        return redirect() ->route('user.item.list', $item->user_id)->with('status', "Edited {$item->name}!");
     }
 
     public function destroy(string $id) {
         $item = Item::findOrFail($id);
         $item->delete();
 
-        return redirect() ->route('user.item.index')->with('status', "{$item->name} deleted successfully!");
+        return redirect() ->route('user.item.list', $item->user_id)->with('status', "{$item->name} deleted successfully!");
     }
 }
