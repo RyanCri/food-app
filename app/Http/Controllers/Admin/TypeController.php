@@ -57,7 +57,7 @@ class TypeController extends Controller
 
         $request->validate($rules);
 
-        $type = new Type;
+        $type = Type::findOrFail($id);
         $type->type = $request->type;
         $type->save();
 
